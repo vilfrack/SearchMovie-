@@ -2,11 +2,13 @@ import React, {Component} from 'react'
 import './App.css';
 import 'bulma/css/bulma.css'
 
+import { Title } from './components/Title'
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-       Search Moves
+        <Title>Search Moves</Title>
       </div>
     );
   }
