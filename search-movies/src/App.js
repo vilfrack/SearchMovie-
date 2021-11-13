@@ -4,6 +4,7 @@ import 'bulma/css/bulma.css'
 
 import { Title } from './components/Title'
 import { SearchForm } from './components/SearchForm'
+import { MoviesList } from './components/MoviesList';
 
 class App extends Component {
   state = { results: [] }
@@ -12,12 +13,6 @@ class App extends Component {
     this.setState({ results })
   }
 
-  _renderResults = () =>{
-    const { results } = this.state
-    return results.map(movie =>{
-      return <p key={movie.imdbID}>{movie.Title}</p>
-    })
-  }
 
   render() {
     return (
@@ -26,7 +21,7 @@ class App extends Component {
         <div className='SearchForm-wrapper'>
           <SearchForm onResults={this._handleResults}/>
         </div>
-        {this.state.results.length === 0 ? <p>Sin resultados</p> : this._renderResults() }
+        {this.state.results.length === 0 ? <p>Sin resultados</p> : <MoviesList movies = {this.state.results}/> }
       </div>
     );
   }
